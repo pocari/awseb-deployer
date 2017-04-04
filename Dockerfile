@@ -1,5 +1,11 @@
 FROM python:2.7.13
 
+RUN apt-get update && \
+    apt-get install -y zip \
+                    unzip \
+                    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN pip install awsebcli \
                 awscli
 
